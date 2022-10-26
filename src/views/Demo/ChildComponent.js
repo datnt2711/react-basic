@@ -14,6 +14,11 @@ class ChildComponent extends React.Component {
     });
   };
 
+  handleDelete = (job) => {
+    console.log(job);
+    this.props.deleteJob(job);
+  };
+
   render() {
     let { arrJobs } = this.props;
     let { check } = this.state;
@@ -30,7 +35,8 @@ class ChildComponent extends React.Component {
                 return (
                   <div key={item.id}>
                     <div>
-                      {item.name} - {item.salary}
+                      {item.title} - {item.salary} <></>{" "}
+                      <span onClick={() => this.handleDelete(item)}>x</span>
                     </div>
                   </div>
                 );
