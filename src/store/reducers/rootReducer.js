@@ -11,11 +11,11 @@ const rootReducer = (state = initState, action) => {
   switch (action.type) {
     case "DELETE_USER":
       console.log(">>> run into delete user ", action);
-      let newUsers = state.users;
-      newUsers.filter((item) => item.id !== action.payload.id);
+      let users = state.users;
+      let newUsers = users.filter((item) => item.id !== action.payload.id);
       return {
         ...state,
-        newUsers,
+        users: newUsers,
       };
 
     case "CREATE_USER":
